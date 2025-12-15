@@ -10,16 +10,16 @@ import {
   _isTestEnvironment
 } from "./chunk-VENV3F3G.js";
 import {
+  RtlScrollAxisType,
+  getRtlScrollAxisType,
+  supportsScrollBehavior
+} from "./chunk-7UJZXIJQ.js";
+import {
   _getEventTarget,
   _getFocusedElementPierceShadowDom,
   _getShadowRoot,
   _supportsShadowDom
 } from "./chunk-I3QM3QXF.js";
-import {
-  RtlScrollAxisType,
-  getRtlScrollAxisType,
-  supportsScrollBehavior
-} from "./chunk-7UJZXIJQ.js";
 import {
   Platform
 } from "./chunk-6EK5UFJT.js";

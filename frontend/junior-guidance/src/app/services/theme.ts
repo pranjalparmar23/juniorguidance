@@ -1,31 +1,41 @@
-import { Injectable } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+// import { Injectable } from '@angular/core';
+// import { ThemePalette } from '@angular/material/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class Theme {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class Theme {
 
-  constructor() { }
+//   constructor() { }
 
-  setTheme(theme: string) {
-    this.applyTheme(theme);
-    localStorage.setItem('themeColor', theme);
-  }
+//   // setTheme(theme: string) {
+//   //   this.applyTheme(theme);
+//   //   localStorage.setItem('themeColor', theme);
+//   // }
 
-  private applyTheme(theme: string) {
-    const body = document.getElementsByTagName('body')[0];
-    body.classList.remove('primary-theme', 'accent-theme', 'warm-theme');
-    body.classList.add(`${theme}-theme`);
-  }
+//   // private applyTheme(theme: string) {
+//   //   const body = document.getElementsByTagName('body')[0];
+//   //   body.classList.remove('primary-theme', 'accent-theme', 'warm-theme');
+//   //   body.classList.add(`${theme}-theme`);
+//   // }
 
-  getTheme():ThemePalette{
-    if(localStorage.getItem('themeColor') === null || localStorage.getItem('themeColor') === undefined){
-      return 'primary'
-    }
-    else{
-      const storedThemeColor = localStorage.getItem('themeColor');
-      return storedThemeColor as ThemePalette;
-    }
-  }
-}
+//   // getTheme():ThemePalette{
+//   //   if(localStorage.getItem('themeColor') === null || localStorage.getItem('themeColor') === undefined){
+//   //     return 'primary'
+//   //   }
+//   //   else{
+//   //     const storedThemeColor = localStorage.getItem('themeColor');
+//   //     return storedThemeColor as ThemePalette;
+//   //   }
+//   // }
+
+//   setTheme(theme: string) {
+//     document.body.classList.remove('blue-theme', 'dark-theme', 'light-theme');
+//     document.body.classList.add(`${theme}-theme`);
+//     localStorage.setItem('themeColor', theme);
+//   }
+
+//   getTheme(): string {
+//     return localStorage.getItem('themeColor') ?? 'blue';
+//   }
+// }
