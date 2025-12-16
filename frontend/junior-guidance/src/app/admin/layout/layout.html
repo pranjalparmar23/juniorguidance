@@ -1,0 +1,38 @@
+<mat-toolbar class="custom-toolbar mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    Junior's Guidance
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" opened="true" mode="side">
+        <img class="avatar mat-elevation-z8" src="profile.png">
+
+        <mat-divider class="custom-divider"></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/articleHub/dashboard" routerLinkActive="active">
+            <mat-icon>home</mat-icon>
+            <span>Dashboard</span>
+        </button>
+
+        <mat-divider class="custom-divider"></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/articleHub/help" routerLinkActive="active">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="background: radial-gradient(red, #332042);">
+        <div class="content mat-elevation-z8" style="background: white;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

@@ -4,10 +4,6 @@ import {
   getSupportedInputTypes
 } from "./chunk-3B7RP26U.js";
 import {
-  normalizePassiveListenerOptions,
-  supportsPassiveEventListeners
-} from "./chunk-XLFYVVIN.js";
-import {
   _isTestEnvironment
 } from "./chunk-5XYFHA5V.js";
 import {
@@ -15,6 +11,10 @@ import {
   getRtlScrollAxisType,
   supportsScrollBehavior
 } from "./chunk-FQL6O3MQ.js";
+import {
+  normalizePassiveListenerOptions,
+  supportsPassiveEventListeners
+} from "./chunk-XLFYVVIN.js";
 import {
   _getEventTarget,
   _getFocusedElementPierceShadowDom,

@@ -4,10 +4,13 @@ import {
   NavigationError,
   NavigationStart,
   Router
-} from "./chunk-E2CWJUPW.js";
+} from "./chunk-XCFUJSF7.js";
 import {
   DomSanitizer
-} from "./chunk-KEXYQ2BT.js";
+} from "./chunk-TXG2254D.js";
+import {
+  HTTP_INTERCEPTORS
+} from "./chunk-5CULVJZN.js";
 import {
   CommonModule,
   NgClass,
@@ -15,9 +18,6 @@ import {
   NgIf,
   NgTemplateOutlet
 } from "./chunk-G3YONU62.js";
-import {
-  HTTP_INTERCEPTORS
-} from "./chunk-5CULVJZN.js";
 import "./chunk-YW65FSQM.js";
 import {
   BehaviorSubject,
