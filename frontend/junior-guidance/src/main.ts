@@ -4,8 +4,9 @@ import { provideRouter } from '@angular/router';
 import { App } from './app/app';
 import { routes } from './app/app.routes';
 import { importProvidersFrom } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient,  withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxUiLoaderConfig, NgxUiLoaderModule, PB_DIRECTION, SPINNER } from 'ngx-ui-loader';
+import { TokenInterceptor } from './app/services/token-interceptor';
 
 const ngxUiLoaderConfig:NgxUiLoaderConfig = {
   text: "Loading...",
@@ -24,7 +25,12 @@ bootstrapApplication(App, {
   ...appConfig,
   providers: [
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     importProvidersFrom(NgxUiLoaderModule.forRoot(ngxUiLoaderConfig))
   ]
 }).catch(err => console.error(err));

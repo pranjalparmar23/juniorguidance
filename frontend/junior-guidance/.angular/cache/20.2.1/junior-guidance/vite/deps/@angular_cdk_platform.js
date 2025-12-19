@@ -1,7 +1,7 @@
 import {
   PlatformModule,
   getSupportedInputTypes
-} from "./chunk-IRRRFNH3.js";
+} from "./chunk-MSMCNPLK.js";
 import {
   normalizePassiveListenerOptions,
   supportsPassiveEventListeners
@@ -10,22 +10,23 @@ import {
   _isTestEnvironment
 } from "./chunk-VENV3F3G.js";
 import {
+  RtlScrollAxisType,
+  getRtlScrollAxisType,
+  supportsScrollBehavior
+} from "./chunk-7UJZXIJQ.js";
+import {
   _getEventTarget,
   _getFocusedElementPierceShadowDom,
   _getShadowRoot,
   _supportsShadowDom
 } from "./chunk-I3QM3QXF.js";
 import {
-  RtlScrollAxisType,
-  getRtlScrollAxisType,
-  supportsScrollBehavior
-} from "./chunk-7UJZXIJQ.js";
-import {
   Platform
-} from "./chunk-6EK5UFJT.js";
-import "./chunk-G3YONU62.js";
+} from "./chunk-7RH6IKRJ.js";
+import "./chunk-WK6IF3BY.js";
 import "./chunk-YW65FSQM.js";
-import "./chunk-J4VSUNO7.js";
+import "./chunk-EIOG7GQF.js";
+import "./chunk-RSS3ODKE.js";
 import "./chunk-WDMUDEB6.js";
 export {
   Platform,

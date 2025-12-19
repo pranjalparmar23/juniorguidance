@@ -1,0 +1,16 @@
+ .title-center {
+     flex: 1 1 auto;
+     text-align: center;
+ }
+
+ .custom-toolbar {
+    background-color: #1976d2; /* Your desired color */
+    color: white; /* Optional: to make the text visible */
+}
+
+ mat-form-field {
+    width: 100%; 
+    max-width: 600px; 
+ }
+
+ 

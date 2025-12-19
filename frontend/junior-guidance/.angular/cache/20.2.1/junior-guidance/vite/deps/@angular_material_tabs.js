@@ -1,26 +1,36 @@
 import {
-  SharedResizeObserver
-} from "./chunk-AYRWYCQM.js";
-import {
   MAT_RIPPLE_GLOBAL_OPTIONS,
   MatRipple
-} from "./chunk-FHUXH6AL.js";
+} from "./chunk-SL7LNUXK.js";
 import {
   _StructuralStylesLoader
-} from "./chunk-3RSOOHJU.js";
+} from "./chunk-U3GNZIY2.js";
+import {
+  SharedResizeObserver
+} from "./chunk-KTLVWRGV.js";
 import "./chunk-OX3NRC6A.js";
 import {
   _animationsDisabled
-} from "./chunk-KBMMZKDS.js";
+} from "./chunk-4QPAX4NP.js";
 import {
   MatCommonModule
-} from "./chunk-N4MMNAMY.js";
+} from "./chunk-MXHX6LJO.js";
 import {
   CdkMonitorFocus,
   FocusKeyManager,
   FocusMonitor
-} from "./chunk-DCABLGEA.js";
+} from "./chunk-FD7ARIMK.js";
+import {
+  CdkObserveContent
+} from "./chunk-6DQE4UYN.js";
+import "./chunk-MSMCNPLK.js";
+import "./chunk-JNVQV6NG.js";
 import "./chunk-L2BZS5YT.js";
+import {
+  CdkScrollable,
+  ViewportRuler
+} from "./chunk-ZOEDY64T.js";
+import "./chunk-477IPXER.js";
 import {
   ENTER,
   SPACE,
@@ -28,46 +38,34 @@ import {
 } from "./chunk-JNHHCRVV.js";
 import {
   _CdkPrivateStyleLoader
-} from "./chunk-LZ2HBACO.js";
+} from "./chunk-KXDDOLTC.js";
+import {
+  Directionality
+} from "./chunk-OWPC6XRW.js";
 import {
   _IdGenerator
-} from "./chunk-7C3Y5LQ6.js";
-import {
-  CdkObserveContent
-} from "./chunk-S2VKGFRH.js";
-import "./chunk-IRRRFNH3.js";
-import "./chunk-JNVQV6NG.js";
+} from "./chunk-A6S2G7BB.js";
+import "./chunk-NLWE5WNF.js";
 import "./chunk-VENV3F3G.js";
+import "./chunk-7UJZXIJQ.js";
 import "./chunk-I3QM3QXF.js";
+import {
+  Platform
+} from "./chunk-7RH6IKRJ.js";
+import "./chunk-WK6IF3BY.js";
+import "./chunk-YW65FSQM.js";
 import {
   CdkPortal,
   CdkPortalOutlet,
   TemplatePortal
-} from "./chunk-3OXGIN2A.js";
+} from "./chunk-EX32FOKK.js";
 import {
-  CdkScrollable,
-  ViewportRuler
-} from "./chunk-G4LHYT3F.js";
-import "./chunk-VQVMG6EG.js";
-import {
-  Directionality
-} from "./chunk-NHFD6IKB.js";
-import "./chunk-XVXWCS2D.js";
-import "./chunk-7UJZXIJQ.js";
-import {
-  Platform
-} from "./chunk-6EK5UFJT.js";
-import "./chunk-G3YONU62.js";
-import "./chunk-YW65FSQM.js";
-import {
-  BehaviorSubject,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChild,
   ContentChildren,
   Directive,
-  EMPTY,
   ElementRef,
   EventEmitter,
   HostAttributeToken,
@@ -76,12 +74,9 @@ import {
   Input,
   NgModule,
   NgZone,
-  Observable,
   Output,
   QueryList,
   Renderer2,
-  Subject,
-  Subscription,
   TemplateRef,
   ViewChild,
   ViewChildren,
@@ -90,20 +85,11 @@ import {
   afterNextRender,
   booleanAttribute,
   computed,
-  debounceTime,
-  filter,
   forwardRef,
   inject,
-  merge,
   numberAttribute,
-  of,
   setClassMetadata,
   signal,
-  skip,
-  startWith,
-  switchMap,
-  takeUntil,
-  timer,
   ɵɵInheritDefinitionFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
@@ -143,7 +129,23 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuery
-} from "./chunk-J4VSUNO7.js";
+} from "./chunk-EIOG7GQF.js";
+import {
+  BehaviorSubject,
+  EMPTY,
+  Observable,
+  Subject,
+  Subscription,
+  debounceTime,
+  filter,
+  merge,
+  of,
+  skip,
+  startWith,
+  switchMap,
+  takeUntil,
+  timer
+} from "./chunk-RSS3ODKE.js";
 import "./chunk-WDMUDEB6.js";
 
 // node_modules/@angular/material/fesm2022/tabs.mjs

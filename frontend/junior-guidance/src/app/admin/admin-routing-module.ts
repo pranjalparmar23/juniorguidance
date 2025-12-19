@@ -21,6 +21,12 @@ export const routes: Routes = [
         canActivate: [RouterGuard]
       },
       {
+        path: 'users',
+        loadComponent: () =>
+          import('./manage-users/manage-users').then(m => m.ManageUsers),
+        canActivate: [RouterGuard]
+      },
+      {
         path: 'help',
         loadComponent: () =>
           import('./help-details/help-details').then(m => m.HelpDetails),
