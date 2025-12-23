@@ -27,6 +27,12 @@ export const routes: Routes = [
         canActivate: [RouterGuard]
       },
       {
+        path: 'category',
+        loadComponent: () =>
+          import('./manage-category/manage-category').then(m => m.ManageCategory),
+        canActivate: [RouterGuard]
+      },
+      {
         path: 'help',
         loadComponent: () =>
           import('./help-details/help-details').then(m => m.HelpDetails),

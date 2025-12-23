@@ -49,20 +49,16 @@ export class Users implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Initialize form
     this.usersForm = this.formBuilder.group({
       name: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.pattern(GlobalConstants.emailRejex)]],
       password: [null, [Validators.required]]
     });
 
-    // If Edit mode, patch data and make password optional
     if (this.dialogData?.action === 'Edit') {
       this.dialogAction = "Edit";
       this.action = "Update";
       this.usersForm.patchValue(this.dialogData.data);
-
-      // Password optional for Edit
       this.usersForm.get('password')?.clearValidators();
       this.usersForm.get('password')?.updateValueAndValidity();
     }
