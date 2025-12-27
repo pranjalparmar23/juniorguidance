@@ -8,8 +8,8 @@ export const routes: Routes = [
     {path: 'login', component: Login},
     {
         path : 'articleHub',
-        loadChildren: () => import('./admin/admin-routing-module').then(m => m.routes),
+        loadChildren: () => import('./admin/admin-routing-module'),
         canActivate: [RouterGuard]
     },
-    {path: '**', component: Home} //wildcard route
+    {path: '**', redirectTo: ''} //wildcard route
 ];

@@ -1,0 +1,22 @@
+ .title-center {
+     flex: 1 1 auto;
+     text-align: center;
+ }
+
+ .custom-toolbar {
+    background-color: #1976d2; 
+    color: white; 
+}
+
+ mat-form-field {
+    width: 100%; 
+ }
+
+ .editor-wrapper {
+  margin-bottom: 16px;
+}
+
+.mat-form-field-flex {
+  min-height: 56px;
+}
+

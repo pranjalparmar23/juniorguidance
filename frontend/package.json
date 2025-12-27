@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@kolkov/angular-editor": "^3.0.4",
     "ngx-ui-loader": "^19.0.0"
   }
 }

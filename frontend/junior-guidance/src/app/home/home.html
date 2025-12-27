@@ -1,9 +1,32 @@
 <mat-toolbar class="custom-toolbar mat-elevation-z8">
     Junior's Guidance
     <span class="spacer"></span>
-
     <mat-icon class="login-icon" [routerLink]="['/login']">login</mat-icon>
 </mat-toolbar>
+
+<div class="content-wrapper">
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Filter</mat-label>
+        <input matInput [(ngModel)]="searchText" (input)="filteredItems()">
+    </mat-form-field>
+
+    <div class="card-container">
+        <mat-card *ngFor="let card of filteredItems()" class="card" (click)="handleViewAction(card)">
+            <mat-card-header>
+                <mat-card-title>{{card.title}}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                Category: {{card.categoryName}} 
+                <br>
+                Published on: {{card.publication_date | date : 'dd-MM-yyyy'}}
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <h1 *ngIf="filteredItems()?.length === 0">Nothing to show!</h1>
+</div>
 
 <mat-toolbar class="footer custom-toolbar mat-elevation-z8">
     <div class="toolbar-content">All rights reserved @Pranjal Parmar</div>

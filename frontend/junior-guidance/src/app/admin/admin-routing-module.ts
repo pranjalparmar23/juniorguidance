@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { RouterGuard } from '../services/router-guard';
 
-export const routes: Routes = [
+const adminRoutes: Routes = [
   {
     path: '',
     loadComponent: () =>
@@ -33,21 +32,20 @@ export const routes: Routes = [
         canActivate: [RouterGuard]
       },
       {
+        path: 'article',
+        loadComponent: () =>
+          import('./manage-article/manage-article').then(m => m.ManageArticle),
+        canActivate: [RouterGuard]
+      },
+      {
         path: 'help',
         loadComponent: () =>
           import('./help-details/help-details').then(m => m.HelpDetails),
         canActivate: [RouterGuard]
       },
-      {
-        path: '**',
-        redirectTo: 'dashboard'
-      }
+      { path: '**', redirectTo: 'dashboard' }
     ]
   }
 ];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class AdminRoutingModule {}
+export default adminRoutes;

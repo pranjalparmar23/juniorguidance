@@ -4,23 +4,6 @@
   color: white;
 }
 
-
-
-/* body.blue-theme .custom-toolbar {
-  background-color: #1976d2;
-  color: white;
-}
-
-body.dark-theme .custom-toolbar {
-  background-color: #0d0d0d; 
-  color: white;
-}
-
-body.light-theme .custom-toolbar {
-  background-color: #e3f2fd;
-  color: #0d47a1;
-} */
-
 .spacer {
   flex: 1 1 auto;
 }
@@ -38,9 +21,7 @@ body.light-theme .custom-toolbar {
 .content-wrapper {
   position: absolute;
   top: 64px;
-  /* Adjust this based on your header's height */
   bottom: 56px;
-  /* Adjust this based on your footer's height */
   left: 0;
   right: 0;
   overflow: auto;
@@ -49,11 +30,8 @@ body.light-theme .custom-toolbar {
 .toolbar-content {
   display: flex;
   justify-content: center;
-  /* Horizontally center content */
   align-items: center;
-  /* Vertically center content */
   width: 100%;
-  /* Ensure content spans full width */
 }
 
 .login-icon {
@@ -81,7 +59,6 @@ h1 {
 
 .card {
   flex-basis: calc(50% - 20px);
-  /* Adjust the width and margin as needed */
   margin: 10px;
   box-sizing: border-box;
 }
