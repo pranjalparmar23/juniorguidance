@@ -21,7 +21,7 @@
             <span>Dashboard</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/articleHub/users" routerLinkActive="active">
+        <button *ngIf="isAdmin" mat-button class="menu-button" routerLink="/articleHub/users" routerLinkActive="active">
             <mat-icon>group</mat-icon>
             <span>User</span>
         </button>
@@ -50,4 +50,3 @@
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
-

@@ -1,22 +1,22 @@
 import {
   _animationsDisabled
-} from "./chunk-ULWLWHI7.js";
+} from "./chunk-ODMY5MZ3.js";
 import {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader
-} from "./chunk-7SXLG44A.js";
+} from "./chunk-TVAZLVFB.js";
 import {
   _CdkPrivateStyleLoader
 } from "./chunk-3WCRWPRU.js";
-import {
-  coerceElement
-} from "./chunk-E7OZOBAT.js";
 import {
   normalizePassiveListenerOptions
 } from "./chunk-CD454CV4.js";
 import {
   _getEventTarget
 } from "./chunk-RHWKXHTL.js";
+import {
+  coerceElement
+} from "./chunk-E7OZOBAT.js";
 import {
   Platform
 } from "./chunk-W45FYTSH.js";
@@ -622,4 +622,4 @@ export {
   MAT_RIPPLE_GLOBAL_OPTIONS,
   MatRipple
 };
-//# sourceMappingURL=chunk-BWV6E5OH.js.map
+//# sourceMappingURL=chunk-ZCUGAE4T.js.map

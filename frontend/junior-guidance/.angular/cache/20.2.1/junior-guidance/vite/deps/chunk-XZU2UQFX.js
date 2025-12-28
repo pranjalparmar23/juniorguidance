@@ -3,7 +3,7 @@ import {
   FocusMonitor,
   FocusTrapFactory,
   InteractivityChecker
-} from "./chunk-7SXLG44A.js";
+} from "./chunk-TVAZLVFB.js";
 import {
   OverlayConfig,
   OverlayContainer,
@@ -12,7 +12,7 @@ import {
   createBlockScrollStrategy,
   createGlobalPositionStrategy,
   createOverlayRef
-} from "./chunk-NTBQBF3I.js";
+} from "./chunk-47F4X7GF.js";
 import {
   ESCAPE,
   hasModifierKey
@@ -21,8 +21,8 @@ import {
   _IdGenerator
 } from "./chunk-2CY3X3NT.js";
 import {
-  Directionality
-} from "./chunk-FBAQJPVF.js";
+  _getFocusedElementPierceShadowDom
+} from "./chunk-RHWKXHTL.js";
 import {
   BasePortalOutlet,
   CdkPortalOutlet,
@@ -31,8 +31,8 @@ import {
   TemplatePortal
 } from "./chunk-5WS46NS5.js";
 import {
-  _getFocusedElementPierceShadowDom
-} from "./chunk-RHWKXHTL.js";
+  Directionality
+} from "./chunk-FBAQJPVF.js";
 import {
   Platform
 } from "./chunk-W45FYTSH.js";
@@ -947,4 +947,4 @@ export {
   Dialog,
   DialogModule
 };
-//# sourceMappingURL=chunk-B24TQHAX.js.map
+//# sourceMappingURL=chunk-XZU2UQFX.js.map

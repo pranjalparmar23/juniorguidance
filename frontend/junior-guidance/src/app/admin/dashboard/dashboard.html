@@ -1,3 +1,6 @@
 <mat-card>
-    <b><span>Welcome Admin!!</span></b>
+  <b>
+    <span *ngIf="isAdmin">Welcome Admin!!</span>
+    <span *ngIf="!isAdmin">Welcome User!!</span>
+  </b>
 </mat-card>

@@ -4,7 +4,7 @@ import {
 import {
   ScrollingModule,
   ViewportRuler
-} from "./chunk-LBKJQ6UY.js";
+} from "./chunk-MBV7CDWL.js";
 import {
   _RecycleViewRepeaterStrategy,
   _VIEW_REPEATER_STRATEGY,
@@ -2705,4 +2705,4 @@ export {
   CdkTextColumn,
   CdkTableModule
 };
-//# sourceMappingURL=chunk-2YBEI43S.js.map
+//# sourceMappingURL=chunk-23Q36NS2.js.map

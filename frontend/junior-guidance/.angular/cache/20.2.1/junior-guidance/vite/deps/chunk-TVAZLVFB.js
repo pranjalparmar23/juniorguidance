@@ -28,9 +28,6 @@ import {
   _CdkPrivateStyleLoader
 } from "./chunk-3WCRWPRU.js";
 import {
-  coerceElement
-} from "./chunk-E7OZOBAT.js";
-import {
   normalizePassiveListenerOptions
 } from "./chunk-CD454CV4.js";
 import {
@@ -38,6 +35,9 @@ import {
   _getFocusedElementPierceShadowDom,
   _getShadowRoot
 } from "./chunk-RHWKXHTL.js";
+import {
+  coerceElement
+} from "./chunk-E7OZOBAT.js";
 import {
   Platform
 } from "./chunk-W45FYTSH.js";
@@ -2832,4 +2832,4 @@ export {
   FOCUS_TRAP_INERT_STRATEGY,
   ConfigurableFocusTrapFactory
 };
-//# sourceMappingURL=chunk-7SXLG44A.js.map
+//# sourceMappingURL=chunk-TVAZLVFB.js.map

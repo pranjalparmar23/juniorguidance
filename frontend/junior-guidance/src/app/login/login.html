@@ -19,13 +19,14 @@
 
                 <mat-form-field appearance="outline" fxFlex>
                     <mat-label>Password</mat-label>
-                    <input matInput formControlName="password" required>
+                    <input matInput type="password" formControlName="password" required>
                     <mat-error *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
                         <span *ngIf="loginForm.controls['password'].errors?.['required']">This field is required.</span>
                     </mat-error>
                 </mat-form-field>
 
-                <button mat-raised-button class="login-btn" [disabled]="!(loginForm.valid && loginForm.dirty)" (click)="handleSubmit()">
+                <button mat-raised-button class="login-btn" [disabled]="!(loginForm.valid && loginForm.dirty)"
+                    (click)="handleSubmit()">
                     Login
                 </button>
             </div>
@@ -33,6 +34,12 @@
 
         <div class="home-link">
             <span (click)="onBack()"><span style="color: blue; cursor: pointer;">Back</span></span>
+        </div>
+
+        <div class="create-user-link" style="text-align: center; margin-top: 8px;">
+            <span (click)="signUp()" style="color: blue; text-decoration: underline; cursor: pointer;">
+                New User? Create an account!
+            </span>
         </div>
     </div>
 </body>

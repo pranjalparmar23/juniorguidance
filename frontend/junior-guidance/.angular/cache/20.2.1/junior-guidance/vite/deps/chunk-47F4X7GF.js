@@ -2,11 +2,6 @@ import {
   coerceCssPixelValue
 } from "./chunk-RQKOK63Y.js";
 import {
-  ScrollDispatcher,
-  ScrollingModule,
-  ViewportRuler
-} from "./chunk-LBKJQ6UY.js";
-import {
   ESCAPE,
   coerceArray,
   hasModifierKey
@@ -18,23 +13,28 @@ import {
   _IdGenerator
 } from "./chunk-2CY3X3NT.js";
 import {
-  BidiModule,
-  Directionality
-} from "./chunk-FBAQJPVF.js";
+  _isTestEnvironment
+} from "./chunk-UGRWDZBU.js";
+import {
+  _getEventTarget
+} from "./chunk-RHWKXHTL.js";
 import {
   DomPortalOutlet,
   PortalModule,
   TemplatePortal
 } from "./chunk-5WS46NS5.js";
 import {
-  _isTestEnvironment
-} from "./chunk-UGRWDZBU.js";
+  ScrollDispatcher,
+  ScrollingModule,
+  ViewportRuler
+} from "./chunk-MBV7CDWL.js";
+import {
+  BidiModule,
+  Directionality
+} from "./chunk-FBAQJPVF.js";
 import {
   supportsScrollBehavior
 } from "./chunk-QLNEHLUF.js";
-import {
-  _getEventTarget
-} from "./chunk-RHWKXHTL.js";
 import {
   Platform
 } from "./chunk-W45FYTSH.js";
@@ -2994,4 +2994,4 @@ export {
   OverlayModule,
   FullscreenOverlayContainer
 };
-//# sourceMappingURL=chunk-NTBQBF3I.js.map
+//# sourceMappingURL=chunk-47F4X7GF.js.map
