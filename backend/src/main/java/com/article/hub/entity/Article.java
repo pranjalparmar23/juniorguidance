@@ -29,6 +29,7 @@ public class Article implements Serializable {
     private String title;
 
     @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
 
     @ManyToOne
