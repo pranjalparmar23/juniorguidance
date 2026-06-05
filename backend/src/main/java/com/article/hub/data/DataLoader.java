@@ -21,11 +21,11 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         if(!userInfoRepository.findByEmail("admin@gmail.com").isPresent()){
             UserInfo userInfo = new UserInfo();
-            userInfo.setName("admin");
-            userInfo.setEmail("admin@gmail.com");
+            userInfo.setName("***");
+            userInfo.setEmail("***@gmail.com");
             userInfo.setIsDeletable("false");
             userInfo.setStatus("true");
-            userInfo.setPassword(encoder.encode("admin"));
+            userInfo.setPassword(encoder.encode("***"));
             userInfoRepository.save(userInfo);
         }
         System.out.println("=========== You can login with : email (***@gmail.com) and password (***) ===========");
