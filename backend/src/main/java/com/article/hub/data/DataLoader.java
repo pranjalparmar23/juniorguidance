@@ -28,6 +28,6 @@ public class DataLoader implements ApplicationRunner {
             userInfo.setPassword(encoder.encode("admin"));
             userInfoRepository.save(userInfo);
         }
-        System.out.println("=========== You can login with : email (admin@gmail.com) and password (admin) ===========");
+        System.out.println("=========== You can login with : email (***@gmail.com) and password (***) ===========");
     }
 }
