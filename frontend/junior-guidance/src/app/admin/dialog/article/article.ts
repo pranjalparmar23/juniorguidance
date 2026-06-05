@@ -110,7 +110,7 @@ this.ngxService.start();
   }
 
 getAllCategory() {
-  this.categoryService.getAllCategory().subscribe((response: any) => {
+  this.categoryService.getAllCategoryForSelection().subscribe((response: any) => {
     this.categorys = response;
     this.ngxService.stop();
   }, (error: any) => {

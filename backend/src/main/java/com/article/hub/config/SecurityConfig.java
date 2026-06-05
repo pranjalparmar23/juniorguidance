@@ -40,7 +40,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors(cors -> cors.configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()))
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/appUser/addNewAppuser", "/appUser/login", "/article/getAllPublishedArticle", "/appUser/updateUserStatus", "/appUser/updateUser", "/appuser/addNewAppuser", "/appuser/login", "/category/addNewCategory", "/category/updateCategory", "/article/addNewArticle", "/article/updateArticle").permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/appUser/addNewAppuser", "/appUser/login", "/article/getAllPublishedArticle", "/appuser/addNewAppuser", "/appuser/login").permitAll().anyRequest().authenticated())
                 .exceptionHandling(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

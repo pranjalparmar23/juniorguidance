@@ -8,5 +8,7 @@ public interface CategoryService {
 
     ResponseEntity<?> getAllCategory();
 
+    ResponseEntity<?> getAllCategoryForSelection();
+
     ResponseEntity<?> updateCategory(Category category);
 }

@@ -37,6 +37,9 @@ export class Layout implements OnInit {
       dialogRef.close();
       localStorage.removeItem('token');
       localStorage.removeItem('role');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('name');
+      localStorage.removeItem('email');
       this.router.navigate(['/']);
     })
   }

@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@NamedQuery(name = "Category.getAllCategory", query = "select new com.article.hub.entity.Category(id, name) from category")
+
+@NamedQuery(name = "Category.getAllCategoryByUser", query = "select new com.article.hub.entity.Category(id, name) from category where createdBy.id=:userId")
+
 @NamedQuery(name = "Category.updateCategory", query = "update category set name=:name where id=:id")
 
 @Entity(name = "category")
@@ -24,6 +28,10 @@ public class Category implements Serializable {
 
     @Column(unique = true)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserInfo createdBy;
 
     public Category() {
         super();
@@ -52,5 +60,13 @@ public class Category implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public UserInfo getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(UserInfo createdBy) {
+        this.createdBy = createdBy;
     }
 }

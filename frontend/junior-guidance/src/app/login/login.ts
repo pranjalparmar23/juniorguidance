@@ -46,11 +46,10 @@ export class Login implements OnInit {
     this.appuserService.login(data).subscribe((response: any) => {
       this.ngxService.stop();
       localStorage.setItem('token', response.token);
-      if (formData.email === 'admin@gmail.com') {
-        localStorage.setItem('role', 'ADMIN');
-      } else {
-        localStorage.setItem('role', 'USER');
-      }
+      localStorage.setItem('role', response.role);
+      localStorage.setItem('userId', response.userId?.toString());
+      localStorage.setItem('name', response.name);
+      localStorage.setItem('email', response.email);
       this.router.navigate(['/articleHub/dashboard']);
     }, (error) => {
       console.log(error);

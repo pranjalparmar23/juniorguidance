@@ -13,6 +13,8 @@ public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
     List<Article> getAllArticle(@Param("status") String status);
 
+    List<Article> getAllArticleByUser(@Param("userId") Integer userId, @Param("status") String status);
+
     @Modifying
     @Transactional
     Integer updateArticle(@Param("title") String title, @Param("content") String content, @Param("categoryId") Integer categoryId, @Param("publication_date")Date publication_date, @Param("status") String status, @Param("id") Integer id);

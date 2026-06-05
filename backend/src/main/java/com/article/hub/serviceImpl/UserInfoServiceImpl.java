@@ -3,7 +3,6 @@ package com.article.hub.serviceImpl;
 import com.article.hub.dao.UserInfoRepository;
 import com.article.hub.entity.AuthRequest;
 import com.article.hub.entity.UserInfo;
-import com.article.hub.filter.JwtAuthFilter;
 import com.article.hub.jwtService.JwtService;
 import com.article.hub.jwtService.UserInfoDetails;
 import com.article.hub.service.UserInfoService;
@@ -17,6 +16,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -41,9 +41,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
     AuthenticationManager authenticationManager;
-
-    @Autowired
-    JwtAuthFilter jwtAuthFilter;
 
     @Override
     public ResponseEntity<?> addNewAppuser(UserInfo userInfo) {
@@ -79,7 +76,13 @@ public class UserInfoServiceImpl implements UserInfoService {
             if(authentication != null && authentication.isAuthenticated()){
                 UserInfoDetails userInfoDetails = (UserInfoDetails) authentication.getPrincipal();
                 if("true".equalsIgnoreCase(userInfoDetails.getStatus())){
-                    return new ResponseEntity<>("{\"token\":\"" + jwtService.generateToken(authRequest.getEmail().toLowerCase()) + "\"}", HttpStatus.OK);
+                    Optional<UserInfo> optionalUserInfo = userInfoRepository.findByEmail(authRequest.getEmail().toLowerCase());
+                    if(!optionalUserInfo.isPresent()){
+                        return new ResponseEntity<>("{\"message\":\"User not found.\"}", HttpStatus.UNAUTHORIZED);
+                    }
+                    UserInfo userInfo = optionalUserInfo.get();
+                    String role = "false".equalsIgnoreCase(userInfo.getIsDeletable()) ? "ADMIN" : "USER";
+                    return new ResponseEntity<>("{\"token\":\"" + jwtService.generateToken(userInfo) + "\",\"userId\":" + userInfo.getId() + ",\"name\":\"" + userInfo.getName() + "\",\"email\":\"" + userInfo.getEmail() + "\",\"role\":\"" + role + "\"}", HttpStatus.OK);
                 }else{
                     return new ResponseEntity<>("{\"message\":\"Wait for admin approval.\"}", HttpStatus.BAD_REQUEST);
                 }
@@ -99,7 +102,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public ResponseEntity<?> getAllAppuser() {
         try{
-            return new ResponseEntity<>(userInfoRepository.getAllAppuser(jwtAuthFilter.getEmail()), HttpStatus.OK);
+            String email = getCurrentEmail();
+            if(Objects.isNull(email)){
+                return new ResponseEntity<>("{\"message\":\"Unauthorized.\"}", HttpStatus.UNAUTHORIZED);
+            }
+            return new ResponseEntity<>(userInfoRepository.getAllAppuser(email), HttpStatus.OK);
         }catch(Exception ex){
             log.error("Exception in getAllAppuser : {}", ex.getMessage());
         }
@@ -146,5 +153,18 @@ public class UserInfoServiceImpl implements UserInfoService {
             log.error("Exception in updateUser : {}", ex.getMessage());
         }
         return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    private String getCurrentEmail() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication() != null
+                ? SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+                : null;
+        if(Objects.isNull(principal)){
+            return null;
+        }
+        if(principal instanceof org.springframework.security.core.userdetails.UserDetails){
+            return ((org.springframework.security.core.userdetails.UserDetails) principal).getUsername();
+        }
+        return principal.toString();
     }
 }

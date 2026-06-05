@@ -33,12 +33,7 @@
               "src/custom-theme.scss",
               "node_modules/@kolkov/angular-editor/themes/default.scss",
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -112,3 +107,4 @@
     "analytics": "28cf2ea2-452b-4d09-ba19-ba5ac7c61cbf"
   }
 }
+

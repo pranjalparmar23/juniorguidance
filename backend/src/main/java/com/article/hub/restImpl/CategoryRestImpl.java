@@ -39,6 +39,16 @@ public class CategoryRestImpl implements CategoryRest {
     }
 
     @Override
+    public ResponseEntity<?> getAllCategoryForSelection() {
+        try{
+            return categoryService.getAllCategoryForSelection();
+        } catch (Exception ex){
+            log.error("Exception in getAllCategoryForSelection : {}", ex.getMessage());
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong.\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
     public ResponseEntity<?> updateCategory(Category category) {
         try{
             return categoryService.updateCategory(category);

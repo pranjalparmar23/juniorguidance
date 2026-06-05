@@ -10,6 +10,8 @@ import java.util.Date;
 
 @NamedQuery(name = "Article.getAllArticle", query = "select new com.article.hub.entity.Article(id, title, content, status, publication_date, category.id, category.name) from article where (:status is null or status=:status)")
 
+@NamedQuery(name = "Article.getAllArticleByUser", query = "select new com.article.hub.entity.Article(id, title, content, status, publication_date, category.id, category.name) from article where createdBy.id=:userId and (:status is null or status=:status)")
+
 @NamedQuery(name = "Article.updateArticle", query = "update article a SET a.title=:title, a.content=:content, a.category.id=:categoryId, a.publication_date=:publication_date, a.status=:status where a.id=:id")
 
 @NamedQuery(name = "Article.deleteArticle", query = "delete from article where id=:id")
@@ -35,6 +37,10 @@ public class Article implements Serializable {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserInfo createdBy;
 
     private Date publication_date;
 
@@ -77,6 +83,14 @@ public class Article implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public UserInfo getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(UserInfo createdBy) {
+        this.createdBy = createdBy;
     }
 
     public Date getPublication_date() {

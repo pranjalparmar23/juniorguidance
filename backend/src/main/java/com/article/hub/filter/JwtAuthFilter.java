@@ -23,7 +23,7 @@ import java.util.List;
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
 
-    private final List<String> allowedEndPoints = Arrays.asList("/appUser/addNewAppuser", "/appUser/login", "/article/getAllPublishedArticle", "/appUser/updateUserStatus", "/appUser/updateUser", "/appuser/addNewAppuser", "/appuser/login", "/category/addNewCategory", "/category/updateCategory", "/article/addNewArticle", "/article/updateArticle");
+    private final List<String> allowedEndPoints = Arrays.asList("/appUser/addNewAppuser", "/appUser/login", "/article/getAllPublishedArticle", "/appuser/addNewAppuser", "/appuser/login");
 
     @Autowired
     JwtService jwtService;
@@ -31,13 +31,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Autowired
     UserInfoService userDetailService;
 
-    String email = null;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
         String token = null;
+        String email = null;
 
         if(allowedEndPoints.contains(request.getRequestURI())){
             filterChain.doFilter(request, response);
@@ -60,7 +59,4 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    public String getEmail() {
-        return email;
-    }
 }

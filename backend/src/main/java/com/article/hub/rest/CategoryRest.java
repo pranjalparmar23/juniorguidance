@@ -16,6 +16,9 @@ public interface CategoryRest {
     @GetMapping(path = "/getAllCategory")
     ResponseEntity<?> getAllCategory();
 
+    @GetMapping(path = "/getAllCategoryForSelection")
+    ResponseEntity<?> getAllCategoryForSelection();
+
     @PostMapping(path = "/updateCategory")
     ResponseEntity<?> updateCategory(@RequestBody(required = true) Category category);
 }

@@ -1,5 +1,6 @@
 package com.article.hub.jwtService;
 
+import com.article.hub.entity.UserInfo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -22,6 +23,14 @@ public class JwtService {
     public String generateToken(String userName){
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, userName);
+    }
+
+    public String generateToken(UserInfo userInfo){
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("userId", userInfo.getId());
+        claims.put("role", "false".equalsIgnoreCase(userInfo.getIsDeletable()) ? "ADMIN" : "USER");
+        claims.put("name", userInfo.getName());
+        return createToken(claims, userInfo.getEmail());
     }
 
     private String createToken(Map<String, Object> claims, String userName){

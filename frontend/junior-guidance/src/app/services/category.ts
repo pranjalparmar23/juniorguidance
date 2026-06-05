@@ -25,4 +25,8 @@ export class Category {
   getAllCategory() {
     return this.httpClient.get(this.url + "/category/getAllCategory");
   }
+
+  getAllCategoryForSelection() {
+    return this.httpClient.get(this.url + "/category/getAllCategoryForSelection");
+  }
 }

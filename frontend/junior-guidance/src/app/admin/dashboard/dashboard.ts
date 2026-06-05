@@ -12,9 +12,12 @@ import { CommonModule } from '@angular/common';
 export class Dashboard implements OnInit {
 
   isAdmin = false;
+  userName = 'User';
 
   ngOnInit(): void {
     const role = localStorage.getItem('role');
+    const name = localStorage.getItem('name');
     this.isAdmin = role === 'ADMIN';
+    this.userName = name || (this.isAdmin ? 'Admin' : 'User');
   }
 }
