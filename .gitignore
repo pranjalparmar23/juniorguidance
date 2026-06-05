@@ -6,6 +6,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Maven
+backend/target/
+
 ### STS ###
 .apt_generated
 .classpath
@@ -49,6 +52,11 @@ build/
 /node_modules
 npm-debug.log
 yarn-error.log
+
+# Angular
+frontend/junior-guidance/node_modules/
+frontend/junior-guidance/.angular/
+frontend/junior-guidance/dist/
 
 # IDEs and editors
 .idea/
