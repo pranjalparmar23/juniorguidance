@@ -1,7 +1,9 @@
-<mat-toolbar>
-    <mat-toolbar-row fxLayout="row" class="custom-toolbar">
-        <span>View Article</span> &nbsp;
-        [Published on {{articleDetails.publication_date | date : 'dd-MM-yyyy'}}]
+<mat-toolbar class="article-toolbar">
+    <mat-toolbar-row class="custom-toolbar">
+        <span class="dialog-title">
+            Article
+            <span class="published-date">Published on {{articleDetails.publication_date | date : 'dd-MM-yyyy'}}</span>
+        </span>
         <span class="spacer"></span>
         <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
             <mat-icon>close</mat-icon>
@@ -10,7 +12,7 @@
 </mat-toolbar>
 
 <mat-dialog-content class="mat-typography">
-    Title: {{articleDetails.title}}
+    <h2 class="article-title">{{articleDetails.title}}</h2>
     <hr>
-    <div [innerHTML]="articleDetails.content | sanitizeHtml"></div>
+    <div class="article-body" [innerHTML]="articleDetails.content | sanitizeHtml"></div>
 </mat-dialog-content>

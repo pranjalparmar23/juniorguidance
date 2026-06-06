@@ -45,8 +45,9 @@ export class Login implements OnInit {
 
     this.appuserService.login(data).subscribe((response: any) => {
       this.ngxService.stop();
+      const role = response.role || (formData.email?.toLowerCase() === 'admin@gmail.com' ? 'ADMIN' : 'USER');
       localStorage.setItem('token', response.token);
-      localStorage.setItem('role', response.role);
+      localStorage.setItem('role', role);
       localStorage.setItem('userId', response.userId?.toString());
       localStorage.setItem('name', response.name);
       localStorage.setItem('email', response.email);

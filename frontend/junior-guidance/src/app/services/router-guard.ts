@@ -13,11 +13,10 @@ export class RouterGuard implements CanActivate {
     if (isPlatformBrowser(this.platformId)) {
       const token = localStorage.getItem('token');
       if (route.routeConfig?.path === 'users') {
-        const role = localStorage.getItem('role');
-        if (token && role === 'ADMIN') {
+        if (token && this.isAdmin(token)) {
           return true;
         }
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/articleHub/dashboard']);
         return false;
       }
 
@@ -27,5 +26,19 @@ export class RouterGuard implements CanActivate {
     }
     this.router.navigate(['/']);
     return false;
+  }
+
+  private isAdmin(token: string): boolean {
+    const storedRole = localStorage.getItem('role');
+    if (storedRole === 'ADMIN') {
+      return true;
+    }
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload?.role === 'ADMIN';
+    } catch {
+      return false;
+    }
   }
 }

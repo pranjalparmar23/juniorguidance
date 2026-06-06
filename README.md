@@ -183,3 +183,70 @@ Backend  → http://localhost:8080
 Make sure backend is running before starting frontend.
 
 ---
+
+# Docker Setup
+
+You can run the full project with Docker Compose from the project root:
+
+```bash
+docker compose up --build
+```
+
+Open the app:
+
+```text
+Frontend: http://localhost:4200
+Backend:  http://localhost:8080
+MySQL:    localhost:3307
+```
+
+Open from another device on the same Wi-Fi, such as a phone:
+
+```text
+http://YOUR_COMPUTER_IP:4200
+```
+
+On macOS, get your computer IP with:
+
+```bash
+ipconfig getifaddr en0
+```
+
+For example:
+
+```text
+http://192.168.1.10:4200
+```
+
+Run in background:
+
+```bash
+docker compose up --build -d
+```
+
+View logs:
+
+```bash
+docker compose logs -f
+```
+
+Stop containers:
+
+```bash
+docker compose down
+```
+
+Stop containers and delete the MySQL Docker volume:
+
+```bash
+docker compose down -v
+```
+
+Rebuild only one service:
+
+```bash
+docker compose build backend
+docker compose build frontend
+```
+
+The Docker database name is `articleHubSpringOne`, with root password `root@123`. The MySQL container is exposed on host port `3307` so it does not conflict with a local MySQL running on `3306`.

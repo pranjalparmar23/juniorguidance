@@ -1,6 +1,6 @@
 mat-sidenav {
     margin: 16px;
-    width: 200px;
+    width: 220px;
     border-right: none;
     background: #ccc;
     color: white;
@@ -12,6 +12,7 @@ mat-sidenav {
 .custom-toolbar {
   background-color: #1976d2;
   color: white;
+  min-height: 64px;
 }
 
 .spacer {
@@ -25,10 +26,12 @@ mat-sidenav {
     margin-left: 32px;
     padding: 16px;
     overflow: auto;
+    background: white;
 }
 
 mat-sidenav-container {
     height: calc(100vh - 65px);
+    background: radial-gradient(red, #332042);
 }
 
 .hamburger {
@@ -101,4 +104,41 @@ mat-divider {
 .button-margin {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .custom-toolbar {
+        min-height: 56px;
+        font-size: 1rem;
+        padding: 0 8px;
+    }
+
+    mat-sidenav {
+        width: min(82vw, 280px);
+        height: calc(100vh - 88px);
+        margin: 12px;
+        padding: 14px;
+    }
+
+    mat-sidenav-container {
+        height: calc(100vh - 56px);
+    }
+
+    .content {
+        height: calc(100vh - 88px);
+        margin: 12px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .avatar {
+        width: 84px;
+        height: 84px;
+        margin: 10px auto 14px;
+    }
+
+    .menu-button {
+        min-height: 48px;
+        font-size: 0.95rem;
+    }
 }
