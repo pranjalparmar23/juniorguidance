@@ -70,7 +70,10 @@ export class Home {
       action: 'Edit',
       data: values
     };
-    dialogConfig.width = "850px";
+    dialogConfig.width = '850px';
+    dialogConfig.maxWidth = 'calc(100vw - 24px)';
+    dialogConfig.maxHeight = 'calc(100vh - 24px)';
+    dialogConfig.panelClass = 'article-details-dialog';
     const dialogRef = this.dialog.open(ArticleDetails, dialogConfig);
     this.router.events.subscribe(() => {
       dialogRef.close();

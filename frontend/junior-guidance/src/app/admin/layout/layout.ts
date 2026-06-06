@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router, RouterModule } from '@angular/router';
 import { Confirmation } from '../dialog/confirmation/confirmation';
@@ -19,12 +19,44 @@ import { CommonModule } from '@angular/common';
 export class Layout implements OnInit {
 
   isAdmin = false;
+  isMobile = false;
 
   constructor(private dialog: MatDialog,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.isAdmin = localStorage.getItem('role') === 'ADMIN';
+    this.isAdmin = this.getIsAdmin();
+    this.updateViewportMode();
+  }
+
+  @HostListener('window:resize')
+  updateViewportMode() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  closeMenuOnMobile(sidenav: any) {
+    if (this.isMobile) {
+      sidenav.close();
+    }
+  }
+
+  private getIsAdmin(): boolean {
+    const role = localStorage.getItem('role');
+    if (role === 'ADMIN') {
+      return true;
+    }
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload?.role === 'ADMIN';
+    } catch {
+      return false;
+    }
   }
 
   logout() {

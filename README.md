@@ -221,198 +221,69 @@ Ensure the backend is running before starting the frontend.
 
 ---
 
-# Running with Docker
+# Docker Setup
 
-The project includes Docker support for running the complete application stack.
-
----
-
-## Services Started
-
-Docker Compose starts:
-
-* MySQL Database
-* Spring Boot Backend
-* Angular Frontend (served via Nginx)
-
----
-
-## Start All Services
-
-From the project root:
+You can run the full project with Docker Compose from the project root:
 
 ```bash
 docker compose up --build
 ```
 
-or
+Open the app:
 
-```bash
-docker-compose up --build
+```text
+Frontend: http://localhost:4200
+Backend:  http://localhost:8080
+MySQL:    localhost:3307
 ```
 
----
+Open from another device on the same Wi-Fi, such as a phone:
 
-## Start in Detached Mode
-
-```bash
-docker compose up -d --build
+```text
+http://YOUR_COMPUTER_IP:4200
 ```
 
----
-
-## View Running Containers
+On macOS, get your computer IP with:
 
 ```bash
-docker ps
+ipconfig getifaddr en0
 ```
 
----
+For example:
 
-## View Logs
+```text
+http://192.168.1.10:4200
+```
 
-All services:
+Run in background:
+
+```bash
+docker compose up --build -d
+```
+
+View logs:
 
 ```bash
 docker compose logs -f
 ```
 
-Specific service:
-
-```bash
-docker compose logs -f frontend
-docker compose logs -f backend
-docker compose logs -f mysql
-```
-
----
-
-## Stop Services
+Stop containers:
 
 ```bash
 docker compose down
 ```
 
----
-
-## Stop and Remove Volumes
+Stop containers and delete the MySQL Docker volume:
 
 ```bash
 docker compose down -v
 ```
 
----
-
-## Rebuild Containers
+Rebuild only one service:
 
 ```bash
-docker compose down
-
-docker compose build --no-cache
-
-docker compose up -d
+docker compose build backend
+docker compose build frontend
 ```
 
----
-
-## Restart Containers
-
-```bash
-docker compose restart
-```
-
----
-
-# Docker Service URLs
-
-After startup:
-
-### Frontend
-
-```text
-http://localhost:4200
-```
-
-### Backend
-
-```text
-http://localhost:8080
-```
-
-### MySQL
-
-```text
-Host: localhost
-Port: 3307
-Database: articleHubSpringOne
-```
-
----
-
-# Environment Notes
-
-The following files/folders are intentionally excluded from Git:
-
-```text
-backend/src/main/resources/application.properties
-node_modules/
-target/
-.angular/
-dist/
-```
-
-The following files are committed and required for deployment:
-
-```text
-Dockerfile
-docker-compose.yml
-nginx.conf
-.dockerignore
-```
-
----
-
-# Recommended Project Setup
-
-Create:
-
-```text
-backend/src/main/resources/application.properties.template
-```
-
-with:
-
-```properties
-spring.application.name=com.article.hub
-
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/articleHubSpringOne
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
-
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
-spring.jpa.properties.hibernate.format_sql=true
-```
-
-Then contributors can simply copy:
-
-```bash
-cp backend/src/main/resources/application.properties.template \
-backend/src/main/resources/application.properties
-```
-
-and update their credentials.
-
----
-
-# Future Enhancements
-
-* Rich Text Editor for Articles
-* Article Search and Filtering
-* User Profile Management
-* Image Upload Support
-* Notifications
-* Analytics Dashboard
-* OAuth Login Integration
+The Docker database name is `articleHubSpringOne`, with root password `root@123`. The MySQL container is exposed on host port `3307` so it does not conflict with a local MySQL running on `3306`.

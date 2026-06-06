@@ -18,3 +18,34 @@ body {
     opacity: 1 !important;
 }
 
+.responsive_table {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.responsive_table table {
+    min-width: 720px;
+}
+
+@media (max-width: 600px) {
+    .responsive_table table {
+        min-width: 640px;
+    }
+
+    mat-card {
+        box-sizing: border-box;
+    }
+
+    .mat-mdc-dialog-container .mdc-dialog__surface {
+        max-width: calc(100vw - 24px);
+        max-height: calc(100vh - 24px);
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    .article-details-dialog {
+        width: calc(100vw - 24px) !important;
+    }
+}
+
