@@ -1,24 +1,28 @@
+````markdown
 # Junior Guidance Platform
 
-A full-stack web application designed to help users read, publish, and manage articles with proper categorization and role-based access.
+A full-stack web application designed to help users read, publish, and manage articles with proper categorization and role-based access control.
 
 ---
 
-## Project Structure
+# Project Structure
 
-```
+```text
 juniorguidance/
 │
-├── backend/        → Spring Boot (Java, Maven)
-├── frontend/       → Angular application
-└── .gitignore
-```
+├── backend/                    # Spring Boot Backend
+├── frontend/
+│   └── junior-guidance/        # Angular Frontend
+├── docker-compose.yml
+├── .gitignore
+└── README.md
+````
 
 ---
 
-## Tech Stack
+# Tech Stack
 
-### Frontend
+## Frontend
 
 * Angular
 * TypeScript
@@ -26,7 +30,7 @@ juniorguidance/
 * CSS3
 * Angular Material
 
-### Backend
+## Backend
 
 * Java 21
 * Spring Boot
@@ -35,91 +39,137 @@ juniorguidance/
 * Maven
 * MySQL
 
+## DevOps
+
+* Docker
+* Docker Compose
+* Nginx
+
 ---
 
-## Features
+# Features
 
-* User authentication (JWT based)
-* Role-based access (Admin / User)
-* Article creation with paragraphs
-* Article publishing & updating
-* Category-based articles
-* View all published articles
+* JWT-based Authentication
+* Role-Based Access Control (Admin/User)
+* Article Creation and Management
+* Article Publishing & Updating
+* Category-Based Article Organization
+* User Dashboard
 * Secure REST APIs
-* Clean UI with Angular
+* Responsive UI with Angular Material
+
+---
+
+# Prerequisites
+
+Before running the project locally, ensure the following are installed:
+
+### For Local Setup
+
+* Java JDK 21
+* Maven
+* MySQL 8+
+* Node.js (18+ recommended)
+* npm
+* Angular CLI
+
+Install Angular CLI:
+
+```bash
+npm install -g @angular/cli
+```
+
+### For Docker Setup
+
+* Docker
+* Docker Compose
 
 ---
 
 # Backend Setup (Spring Boot)
 
-### Prerequisites
+## Backend Location
 
-Install the following:
-
-* Java JDK 21
-* Maven
-* MySQL
-* IDE (IntelliJ / Eclipse / VS Code)
-
----
-
-### Backend Location
-
-```
-juniorguidance/backend
+```text
+backend/
 ```
 
 ---
 
-### Database Configuration
+## Database Setup
 
-Create database in MySQL:
+Create the database:
 
 ```sql
-CREATE DATABASE junior_guidance;
-```
-
-Update `application.properties`:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/junior_guidance
-spring.datasource.username=root
-spring.datasource.password=your_password
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+CREATE DATABASE articleHubSpringOne;
 ```
 
 ---
 
-### Database Entities 
+## Application Properties
 
-<img width="1040" height="602" alt="article db" src="https://github.com/user-attachments/assets/60ba4276-b90d-4a3d-b232-e25596999003" />
+For security reasons, the actual `application.properties` file is not committed to Git.
 
-### Run Backend
+Create the following file:
 
-Since this is a **Maven project**, backend can be started directly from:
-
-```
-src/main/java
-└── Application.java
+```text
+backend/src/main/resources/application.properties
 ```
 
-#### Option 1 — Using IDE
+Use the template below:
 
-* Open backend folder
-* Run `Application.java`
+```properties
+spring.application.name=com.article.hub
 
-#### Option 2 — Using terminal
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/articleHubSpringOne
+spring.datasource.username=YOUR_USERNAME
+spring.datasource.password=YOUR_PASSWORD
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+```
+
+Replace:
+
+* `YOUR_USERNAME`
+* `YOUR_PASSWORD`
+
+with your local MySQL credentials.
+
+---
+
+## Database Schema
+
+<img width="641" height="245" alt="Screenshot 2026-06-06 at 10 40 55 AM" src="https://github.com/user-attachments/assets/ac047b7c-3b4d-494f-afd0-7139ea632fd3" />
+
+
+---
+
+## Run Backend
+
+### Using IDE
+
+Run:
+
+```text
+src/main/java/.../Application.java
+```
+
+### Using Terminal
 
 ```bash
+cd backend
+
 mvn clean install
 mvn spring-boot:run
 ```
 
 Backend runs on:
 
-```
+```text
 http://localhost:8080
 ```
 
@@ -127,37 +177,25 @@ http://localhost:8080
 
 # Frontend Setup (Angular)
 
-### Prerequisites
+## Frontend Location
 
-Install:
-
-* Node.js (18+ recommended)
-* npm
-* Angular CLI
-
-```bash
-npm install -g @angular/cli
+```text
+frontend/junior-guidance/
 ```
 
 ---
 
-### Frontend Location
-
-```
-juniorguidance/frontend/juniorguidance
-```
-
----
-
-### Install Dependencies
+## Install Dependencies
 
 ```bash
+cd frontend/junior-guidance
+
 npm install
 ```
 
 ---
 
-### Run Frontend
+## Run Frontend
 
 ```bash
 ng serve
@@ -165,21 +203,216 @@ ng serve
 
 Frontend runs on:
 
-```
+```text
 http://localhost:4200
 ```
 
 ---
 
-## API Communication
+# API Communication
 
-Frontend communicates with backend using REST APIs:
-
-```
+```text
 Frontend → http://localhost:4200
 Backend  → http://localhost:8080
+Database → MySQL
 ```
 
-Make sure backend is running before starting frontend.
+Ensure the backend is running before starting the frontend.
 
 ---
+
+# Running with Docker
+
+The project includes Docker support for running the complete application stack.
+
+---
+
+## Services Started
+
+Docker Compose starts:
+
+* MySQL Database
+* Spring Boot Backend
+* Angular Frontend (served via Nginx)
+
+---
+
+## Start All Services
+
+From the project root:
+
+```bash
+docker compose up --build
+```
+
+or
+
+```bash
+docker-compose up --build
+```
+
+---
+
+## Start in Detached Mode
+
+```bash
+docker compose up -d --build
+```
+
+---
+
+## View Running Containers
+
+```bash
+docker ps
+```
+
+---
+
+## View Logs
+
+All services:
+
+```bash
+docker compose logs -f
+```
+
+Specific service:
+
+```bash
+docker compose logs -f frontend
+docker compose logs -f backend
+docker compose logs -f mysql
+```
+
+---
+
+## Stop Services
+
+```bash
+docker compose down
+```
+
+---
+
+## Stop and Remove Volumes
+
+```bash
+docker compose down -v
+```
+
+---
+
+## Rebuild Containers
+
+```bash
+docker compose down
+
+docker compose build --no-cache
+
+docker compose up -d
+```
+
+---
+
+## Restart Containers
+
+```bash
+docker compose restart
+```
+
+---
+
+# Docker Service URLs
+
+After startup:
+
+### Frontend
+
+```text
+http://localhost:4200
+```
+
+### Backend
+
+```text
+http://localhost:8080
+```
+
+### MySQL
+
+```text
+Host: localhost
+Port: 3307
+Database: articleHubSpringOne
+```
+
+---
+
+# Environment Notes
+
+The following files/folders are intentionally excluded from Git:
+
+```text
+backend/src/main/resources/application.properties
+node_modules/
+target/
+.angular/
+dist/
+```
+
+The following files are committed and required for deployment:
+
+```text
+Dockerfile
+docker-compose.yml
+nginx.conf
+.dockerignore
+```
+
+---
+
+# Recommended Project Setup
+
+Create:
+
+```text
+backend/src/main/resources/application.properties.template
+```
+
+with:
+
+```properties
+spring.application.name=com.article.hub
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/articleHubSpringOne
+spring.datasource.username=YOUR_USERNAME
+spring.datasource.password=YOUR_PASSWORD
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+```
+
+Then contributors can simply copy:
+
+```bash
+cp backend/src/main/resources/application.properties.template \
+backend/src/main/resources/application.properties
+```
+
+and update their credentials.
+
+---
+
+# Future Enhancements
+
+* Rich Text Editor for Articles
+* Article Search and Filtering
+* User Profile Management
+* Image Upload Support
+* Notifications
+* Analytics Dashboard
+* OAuth Login Integration
