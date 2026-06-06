@@ -1,4 +1,3 @@
-````markdown
 # Junior Guidance Platform
 
 A full-stack web application designed to help users read, publish, and manage articles with proper categorization and role-based access control.
